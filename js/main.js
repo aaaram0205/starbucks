@@ -90,7 +90,8 @@ const promotionToggleBtn = document.querySelector('.toggle-promotion');
 let isHidePromotion = false;
 
 promotionToggleBtn.addEventListener('click', function(){
-    isHidePromotion = !isHidePromotion;
+    isHidePromotion = !isHidePromotion; //특정값을 지속적으로 반대로 만들어줌(true면 false로, false면 true로)
+
     if(isHidePromotion) {
         //숨김처리
         promotionEl.classList.add('hide');
@@ -100,4 +101,3 @@ promotionToggleBtn.addEventListener('click', function(){
     }
 });
 
-//특정값을 지속적으로 반대로 만들어줌(true면 false로, false면 true로)
