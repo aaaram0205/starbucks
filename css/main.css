@@ -731,6 +731,49 @@ header .badges .badge {
 }
 
 
+/* AWARDS */
+.awards {
+    background-color: #272727;
+}
+.awards .inner {
+    padding: 40px 0;
+}
+.awards .swiper {
+    width: 100%;
+    height: 40px;
+}
+.awards .swiper-prev,
+.awards .swiper-next {
+    width: 42px;
+    height: 42px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    outline:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    opacity: .3;
+    cursor: pointer;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    transition: .3s;
+}
+.awards .swiper-prev {
+    left: -100px;
+}
+.awards .swiper-next {
+    right: -100px;
+}
+.awards .swiper-prev:hover,
+.awards .swiper-next:hover {
+    color: #333;
+    background-color: #fff;
+}
+
+
 
 
 
