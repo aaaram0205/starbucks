@@ -25,8 +25,10 @@ searchInputEl.addEventListener ('blur', function(){
 //_.throttle (함수, 시간): 스크롤될때 실행되는 함수의 개수를 일정시간동안에 한번씩만 실행되도록 제한하는 메서드.
 
 //js 애니메이션 라이브러리 gsap: gsap.to (처리할 요소, 지속시간, 옵션);
+//gsap에 너무많은 기능을 넣으면 라이브러리가 무거워지므로, 따로 분리해서 기능 제공하는데 그 중 하나가 ScrollToPlugin
 
 const badgeEl = document.querySelector('header .badges');
+const toTopEl = document.   querySelector("#to-top");
 
 window.addEventListener ('scroll', _.throttle(function(){
     if (window.scrollY > 500) {
@@ -37,6 +39,11 @@ window.addEventListener ('scroll', _.throttle(function(){
             opacity: 0,
             display: 'none'  // 문자데이터
         });
+
+        //탑버튼 보이기
+        gsap.to(toTopEl, .2, {
+            x: 0
+        });
     } else {
         //배지 보이기
        // badgeEl.style.display = "block";
@@ -45,9 +52,20 @@ window.addEventListener ('scroll', _.throttle(function(){
             display: 'block' 
             
         });
+
+        //탑버튼 숨기기
+        gsap.to(toTopEl, .2, {
+            x: 100
+        });
     }
 },300));
 
+
+toTopEl.addEventListener('click', function(){
+    gsap.to(window, .7, {
+        scrollTo: 0
+    });
+});
 
 //VISUAL > 제품 이미지 순차적으로 나타나게 하기
 const fadeEls = document.querySelectorAll('.visual .fade-in');
@@ -138,3 +156,8 @@ function floatingObject (selector, delay, size) {
 floatingObject ('.floating1', 1, 15);   //.floating1가 delay:1초, 15px 위아래로 움직이게
 floatingObject ('.floating2', .5, 15);
 floatingObject ('.floating3', 1.5, 20);
+
+
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear();   //그 해 연도
+
